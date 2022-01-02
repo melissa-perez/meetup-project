@@ -1,4 +1,6 @@
 <script>
+    import Button from "../ui-components/Button.svelte";
+
     export let title;
     export let subtitle;
     export let imageURL;
@@ -59,6 +61,10 @@
     div {
       text-align: right;
     }
+
+    .content{
+      height: 4rem;
+    }
 </style>
 
 <article>
@@ -77,8 +83,8 @@
     </div>
 
     <footer>
-        <a href="mailto:{contactEmail}">Contact</a>
-        <button>Show Details</button>
-        <button>Favorite</button>
+      <Button href="mailto:{contactEmail}" caption="Contact"/>
+      <Button type="button" caption="Details"/>
+      <Button mode="outline" type="button" caption="Favorite"/>
     </footer>
 </article>

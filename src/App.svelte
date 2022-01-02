@@ -2,6 +2,7 @@
 	import Header from "../components/ui-components/Header.svelte";
 	import MeetupGrid from "../components/meetup-components/MeetupGrid.svelte";
 	import TextInput from "../components/ui-components/TextInput.svelte";
+	import Button from "../components/ui-components/Button.svelte";
 
 	export let title = "";
     export let subtitle = "";
@@ -68,7 +69,7 @@
 		<TextInput id="imageURL" label="Image URL" type="text" rows="0" controlType="None" value={imageURL} on:input="{(event) => imageURL = event.target.value}"></TextInput>
 		<TextInput id="contactEmail" label="E-mail" type="email" rows="0" controlType="None" value={contactEmail} on:input="{(event) => contactEmail = event.target.value}"></TextInput>
 		<TextInput id="description" label="Description" type="text" rows="3" controlType="textarea" value={description} on:input="{(event) => description = event.target.value}"></TextInput>
-		<button type="submit">Save</button>
+		<Button type="submit" caption="Save"/>
 	</form>
 	<MeetupGrid {meetups}></MeetupGrid>
 </main>
