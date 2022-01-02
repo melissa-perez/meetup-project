@@ -25,7 +25,7 @@
 		subtitle={meetup.subtitle}
 		description={meetup.description} 
 		imageURL={meetup.imageUrl}
-		email={meetup.contactEmail}
+		contactEmail={meetup.contactEmail}
 		address={meetup.address}>
         </MeetupItem>
 	{/each}

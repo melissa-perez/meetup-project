@@ -1,8 +1,16 @@
 <script>
 	import Header from "../components/ui-components/Header.svelte";
 	import MeetupGrid from "../components/meetup-components/MeetupGrid.svelte";
+	import TextInput from "../components/ui-components/TextInput.svelte";
 
-	const meetups = [
+	export let title = "";
+    export let subtitle = "";
+    export let imageURL = "";
+    export let description = "";
+    export let address = "";
+    export let contactEmail = "";
+
+	let meetups = [
 		{
 			id: "m1",
 			title: "Coding Bootcamp",
@@ -22,17 +30,46 @@
 			contactEmail: "swims@test.com"
 		}
 	]
+
+	function addMeetup() {
+		const newMeetup = {
+			id: Math.random().toString(),
+			title: title,
+			subtitle: subtitle,
+			description: description,
+			imageUrl: imageURL,
+			address: address,
+			contactEmail: contactEmail
+		}
+
+		meetups = [newMeetup, ...meetups];	
+	}
 </script>
 
 <style>
 	main {
 		margin-top: 6rem;
 	}
+
+	form {
+		width: 30 rem;
+		max-width: 90%;
+		margin: auto
+	}
 </style>
 
 <Header></Header>
 
 <main>
+	<form on:submit|preventDefault="{addMeetup}">
+		<TextInput id="title" label="Title" type="text" rows="0" controlType="None" value={title} on:input="{(event) => title = event.target.value}"></TextInput>
+		<TextInput id="subtitle" label="Subtitle" type="text" rows="0" controlType="None" value={subtitle} on:input="{(event) => subtitle = event.target.value}"></TextInput>
+		<TextInput id="address" label="Address" type="text" rows="0" controlType="None" value={address} on:input="{(event) => address = event.target.value}"></TextInput>
+		<TextInput id="imageURL" label="Image URL" type="text" rows="0" controlType="None" value={imageURL} on:input="{(event) => imageURL = event.target.value}"></TextInput>
+		<TextInput id="contactEmail" label="E-mail" type="email" rows="0" controlType="None" value={contactEmail} on:input="{(event) => contactEmail = event.target.value}"></TextInput>
+		<TextInput id="description" label="Description" type="text" rows="3" controlType="textarea" value={description} on:input="{(event) => description = event.target.value}"></TextInput>
+		<button type="submit">Save</button>
+	</form>
 	<MeetupGrid {meetups}></MeetupGrid>
 </main>
 
