@@ -2,7 +2,6 @@
 
 </script>
 
-
 <style>
     	header {
 		position: fixed;
@@ -22,7 +21,6 @@
 		font-family: 'Roboto Slab', serif;
 	}
 </style>
-
 
 <header>
 	<h1>MeetUs</h1>
