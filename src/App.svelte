@@ -26,7 +26,7 @@
 
 <style>
 	#meetups {
-		margin-top: 5rem;
+		margin-top: 6rem;
 	}
 
 </style>
@@ -35,7 +35,13 @@
 
 <section id="meetups">
 	{#each meetups as meetup}
-		<MeetupItem></MeetupItem>
+		<MeetupItem 
+		title={meetup.title} 
+		subtitle={meetup.subtitle}
+		description={meetup.description} 
+		imageURL={meetup.imageUrl}
+		email={meetup.contactEmail}
+		address={meetup.address}></MeetupItem>
 	{/each}
 </section>
 
